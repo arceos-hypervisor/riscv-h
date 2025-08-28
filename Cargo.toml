@@ -1,0 +1,19 @@
+[package]
+name = "riscv-h"
+version = "0.1.0"
+edition = "2024"
+authors = [
+    "Jinquan Yang <yjq980314@outlook.com>",
+]
+categories = ["virtualization", "no-std"]
+description = "RISC-V virtualization-related registers"
+repository = "https://github.com/arceos-hypervisor/riscv-h"
+keywords = ["riscv", "hypervisor"]
+license = "GPL-3.0-or-later OR Apache-2.0 OR MulanPSL-2.0" # MulanPubL2 is not included in SPDX
+
+[dependencies]
+riscv = { version = "0.14.0"}
+bare-metal = "1.0"
+bitflags = "2.9.3"
+bit_field = "0.10.0"
+log = "0.4"
