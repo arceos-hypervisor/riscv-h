@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="RISC-V hypervisor extension register definitions and access functions RISC-V Hypervisor Extension Registers"><title>riscv_h::register - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-0ce1a80b.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="riscv_h" data-themes="" data-resource-suffix="" data-rustdoc-version="1.89.0-nightly (60dabef95 2025-05-19)" data-channel="nightly" data-search-js="search-f7877310.js" data-settings-js="settings-5514c975.js" ><script src="../../static.files/storage-4e99c027.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../static.files/main-7ef8a74a.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-32bb7600.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../riscv_h/index.html">riscv_h</a><span class="version">0.1.0</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module register</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#register-categories" title="Register Categories">Register Categories</a><ul><li><a href="#hypervisor-control-registers" title="Hypervisor Control Registers">Hypervisor Control Registers</a></li><li><a href="#virtual-supervisor-registers" title="Virtual Supervisor Registers">Virtual Supervisor Registers</a></li></ul></li></ul><h3><a href="#modules">Module Items</a></h3><ul class="block"><li><a href="#modules" title="Modules">Modules</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="../index.html">In crate riscv_<wbr>h</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">riscv_h</a></div><h1>Module <span>register</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/riscv_h/register/mod.rs.html#1-41">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>RISC-V hypervisor extension register definitions and access functions
+RISC-V Hypervisor Extension Registers</p>
+<p>This module provides access to Control and Status Registers (CSRs) defined
+in the RISC-V Hypervisor Extension. These registers enable virtualization
+support by providing hypervisor-level control and virtual machine state management.</p>
+<h3 id="register-categories"><a class="doc-anchor" href="#register-categories">§</a>Register Categories</h3><h4 id="hypervisor-control-registers"><a class="doc-anchor" href="#hypervisor-control-registers">§</a>Hypervisor Control Registers</h4>
+<p>These registers control hypervisor behavior and guest execution:</p>
+<ul>
+<li><code>hstatus</code> - Hypervisor status register</li>
+<li><code>hedeleg</code> - Hypervisor exception delegation register</li>
+<li><code>hideleg</code> - Hypervisor interrupt delegation register</li>
+<li><code>hie</code> - Hypervisor interrupt enable register</li>
+<li><code>hip</code> - Hypervisor interrupt pending register</li>
+<li><code>hvip</code> - Hypervisor virtual interrupt pending register</li>
+<li><code>hcounteren</code> - Hypervisor counter enable register</li>
+<li><code>hgatp</code> - Hypervisor guest address translation and protection register</li>
+<li><code>htimedelta</code> - Hypervisor time delta register</li>
+<li><code>htimedeltah</code> - Hypervisor time delta high register</li>
+<li><code>htval</code> - Hypervisor trap value register</li>
+<li><code>htinst</code> - Hypervisor trap instruction register</li>
+<li><code>hgeie</code> - Hypervisor guest external interrupt enable register</li>
+<li><code>hgeip</code> - Hypervisor guest external interrupt pending register</li>
+</ul>
+<h4 id="virtual-supervisor-registers"><a class="doc-anchor" href="#virtual-supervisor-registers">§</a>Virtual Supervisor Registers</h4>
+<p>These registers manage virtual machine supervisor-level state:</p>
+<ul>
+<li><code>vsstatus</code> - Virtual supervisor status register</li>
+<li><code>vsie</code> - Virtual supervisor interrupt enable register</li>
+<li><code>vsip</code> - Virtual supervisor interrupt pending register</li>
+<li><code>vsepc</code> - Virtual supervisor exception program counter</li>
+<li><code>vscause</code> - Virtual supervisor cause register</li>
+<li><code>vstval</code> - Virtual supervisor trap value register</li>
+<li><code>vstvec</code> - Virtual supervisor trap vector register</li>
+<li><code>vsscratch</code> - Virtual supervisor scratch register</li>
+<li><code>vsatp</code> - Virtual supervisor address translation and protection register</li>
+</ul>
+</div></details><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><dl class="item-table"><dt><a class="mod" href="hcounteren/index.html" title="mod riscv_h::register::hcounteren">hcounteren</a></dt><dd>Hypervisor counter enable register
+Hypervisor Guest External Interrupt Pending Register.</dd><dt><a class="mod" href="hedeleg/index.html" title="mod riscv_h::register::hedeleg">hedeleg</a></dt><dd>Hypervisor exception delegation register<br />
+Hypervisor Exception Delegation Register.</dd><dt><a class="mod" href="hgatp/index.html" title="mod riscv_h::register::hgatp">hgatp</a></dt><dd>Hypervisor guest address translation and protection register
+Hypervisor Guest Address Translation and Protection Register.</dd><dt><a class="mod" href="hgeie/index.html" title="mod riscv_h::register::hgeie">hgeie</a></dt><dd>Hypervisor guest external interrupt enable register
+Hypervisor Guest External Interrupt Enable Register.</dd><dt><a class="mod" href="hgeip/index.html" title="mod riscv_h::register::hgeip">hgeip</a></dt><dd>Hypervisor guest external interrupt pending register
+Hypervisor Guest External Interrupt Pending Register.</dd><dt><a class="mod" href="hideleg/index.html" title="mod riscv_h::register::hideleg">hideleg</a></dt><dd>Hypervisor interrupt delegation register
+Hypervisor Interrupt Delegation Register.</dd><dt><a class="mod" href="hie/index.html" title="mod riscv_h::register::hie">hie</a></dt><dd>Hypervisor interrupt enable register
+Hypervisor Interrupt Enable Register.</dd><dt><a class="mod" href="hip/index.html" title="mod riscv_h::register::hip">hip</a></dt><dd>Hypervisor interrupt pending register
+Hypervisor Interrupt Pending Register.</dd><dt><a class="mod" href="hstatus/index.html" title="mod riscv_h::register::hstatus">hstatus</a></dt><dd>Hypervisor status register
+Hypervisor Status Register.</dd><dt><a class="mod" href="htimedelta/index.html" title="mod riscv_h::register::htimedelta">htimedelta</a></dt><dd>Hypervisor time delta register
+Hypervisor Time Delta Register.</dd><dt><a class="mod" href="htimedeltah/index.html" title="mod riscv_h::register::htimedeltah">htimedeltah</a></dt><dd>Hypervisor time delta high register (for RV32)
+Hypervisor Time Delta Register.</dd><dt><a class="mod" href="htinst/index.html" title="mod riscv_h::register::htinst">htinst</a></dt><dd>Hypervisor trap instruction register
+Hypervisor Trap Instruction Register.</dd><dt><a class="mod" href="htval/index.html" title="mod riscv_h::register::htval">htval</a></dt><dd>Hypervisor trap value register
+Hypervisor Trap Value Register.</dd><dt><a class="mod" href="hvip/index.html" title="mod riscv_h::register::hvip">hvip</a></dt><dd>Hypervisor virtual interrupt pending register
+Hypervisor Virtual Interrupt Pending Register.</dd><dt><a class="mod" href="vsatp/index.html" title="mod riscv_h::register::vsatp">vsatp</a></dt><dd>Virtual supervisor address translation and protection register
+Virtual Supervisor Guest Address Translation and Protection Register.</dd><dt><a class="mod" href="vscause/index.html" title="mod riscv_h::register::vscause">vscause</a></dt><dd>Virtual supervisor cause register
+Virtual Supervisor Cause Register.</dd><dt><a class="mod" href="vsepc/index.html" title="mod riscv_h::register::vsepc">vsepc</a></dt><dd>Virtual supervisor exception program counter
+Virtual Supervisor Exception Program Counter.</dd><dt><a class="mod" href="vsie/index.html" title="mod riscv_h::register::vsie">vsie</a></dt><dd>Virtual supervisor interrupt enable register
+Virtual Supevisor Interrupt Enable Register.</dd><dt><a class="mod" href="vsip/index.html" title="mod riscv_h::register::vsip">vsip</a></dt><dd>Virtual supervisor interrupt pending register
+Virtual Supevisor Interrupt Pending Register.</dd><dt><a class="mod" href="vsscratch/index.html" title="mod riscv_h::register::vsscratch">vsscratch</a></dt><dd>Virtual supervisor scratch register
+Virtual Supervisor Scratch Register.</dd><dt><a class="mod" href="vsstatus/index.html" title="mod riscv_h::register::vsstatus">vsstatus</a></dt><dd>Virtual supervisor status register
+Virtual Supervisor Status Register.</dd><dt><a class="mod" href="vstval/index.html" title="mod riscv_h::register::vstval">vstval</a></dt><dd>Virtual supervisor trap value register
+Virtual Supervisor Trap Value Register.</dd><dt><a class="mod" href="vstvec/index.html" title="mod riscv_h::register::vstvec">vstvec</a></dt><dd>Virtual supervisor trap vector register
+Virtual Supervisor Trap Vector Base Address Register.</dd></dl></section></div></main></body></html>

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["HgatpValues"],"fn":["read","try_read"],"struct":["Hgatp"]};
