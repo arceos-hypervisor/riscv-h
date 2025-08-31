@@ -1,5 +1,6 @@
 # riscv-h
 
+[![CI](https://github.com/arceos-hypervisor/riscv-h/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/arceos-hypervisor/riscv-h/actions/workflows/ci.yml)
 [![Crates.io](https://img.shields.io/crates/v/riscv-h.svg)](https://crates.io/crates/riscv-h)
 [![Documentation](https://docs.rs/riscv-h/badge.svg)](https://docs.rs/riscv-h)
 
