@@ -1,8 +1,4 @@
 {
-  "component": {
-    "name": "riscv-h",
-    "crate_name": "riscv_h"
-  },
   "targets": [
     "riscv64gc-unknown-none-elf"
   ],

@@ -70,8 +70,6 @@ cd riscv-h
 # 列出所有可用的测试套件
 ./scripts/test.sh list
 
-# 指定单元测试目标
-./scripts/test.sh unit --unit-targets x86_64-unknown-linux-gnu
 ```
 
 ## 集成使用
@@ -87,35 +85,33 @@ riscv-h = "0.2.0"
 
 ### 使用示例
 
-```rust
+```rust,ignore
 #![no_std]
 
 use riscv_h::register::{hstatus, hgatp, hvip};
 
-fn main() {
-    // 读取虚拟化管理员状态寄存器
-    let hstatus = hstatus::read();
+// 读取虚拟化管理员状态寄存器
+let hstatus = hstatus::read();
+
+// 检查是否处于虚拟化模式
+if hstatus.spv() {
+    // 访问各个字段
+    let vsxl = hstatus.vsxl();      // 虚拟管理员 XLEN
+    let vtw = hstatus.vtw();        // 陷阱 WFI
+    let vtsr = hstatus.vtsr();      // 陷阱 SRET
+    let vgein = hstatus.vgein();    // 虚拟客户外部中断号
     
-    // 检查是否处于虚拟化模式
-    if hstatus.spv() {
-        // 访问各个字段
-        let vsxl = hstatus.vsxl();      // 虚拟管理员 XLEN
-        let vtw = hstatus.vtw();        // 陷阱 WFI
-        let vtsr = hstatus.vtsr();      // 陷阱 SRET
-        let vgein = hstatus.vgein();    // 虚拟客户外部中断号
-        
-        setup_guest_translation();
-    }
-    
-    // 配置虚拟中断挂起
-    let mut hvip_val = hvip::Hvip::from_bits(0);
-    hvip_val.set_vssip(true);  // 设置虚拟管理员软件中断挂起
-    hvip_val.set_vstip(true);  // 设置虚拟管理员定时器中断挂起
-    hvip_val.set_vseip(true);  // 设置虚拟管理员外部中断挂起
-    
-    unsafe {
-        hvip_val.write();
-    }
+    setup_guest_translation();
+}
+
+// 配置虚拟中断挂起
+let mut hvip_val = hvip::Hvip::from_bits(0);
+hvip_val.set_vssip(true);  // 设置虚拟管理员软件中断挂起
+hvip_val.set_vstip(true);  // 设置虚拟管理员定时器中断挂起
+hvip_val.set_vseip(true);  // 设置虚拟管理员外部中断挂起
+
+unsafe {
+    hvip_val.write();
 }
 
 fn setup_guest_translation() {
@@ -132,7 +128,7 @@ fn setup_guest_translation() {
 
 ### 异常和中断委托
 
-```rust
+```rust,ignore
 use riscv_h::register::{hedeleg, hideleg};
 
 unsafe {
@@ -201,4 +197,4 @@ cargo doc --no-deps --open
 
 # 协议
 
-本项目采用 Apache License, Version 2.0 许可证。详见 [LICENSE](LICENSE) 文件。
+本项目采用 Apache License, Version 2.0 许可证。详见 \[LICENSE\](LICENSE) 文件。
